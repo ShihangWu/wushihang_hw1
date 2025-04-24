@@ -110,6 +110,18 @@ Matrix scale_matrix(Matrix a, double k)
 Matrix transpose_matrix(Matrix a)
 {
     // ToDo
+    int rows = a.rows;
+    int cols = a.cols;
+    Matrix b = create_matrix(cols, rows);
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            b.data[j][i] = a.data[i][j];
+        }
+    }
+    return b;
+
     return create_matrix(0, 0);
 }
 
