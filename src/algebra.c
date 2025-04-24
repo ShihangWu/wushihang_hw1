@@ -92,6 +92,18 @@ Matrix mul_matrix(Matrix a, Matrix b)
 Matrix scale_matrix(Matrix a, double k)
 {
     // ToDo
+    int rows = a.rows;
+    int cols = a.cols;
+    Matrix b = create_matrix(rows, cols);
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            b.data[i][j] = a.data[i][j] * k;
+        }
+    }
+    return b;
+
     return create_matrix(0, 0);
 }
 
