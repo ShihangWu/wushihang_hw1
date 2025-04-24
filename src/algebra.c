@@ -128,6 +128,8 @@ Matrix transpose_matrix(Matrix a)
 double det_matrix(Matrix a)
 {
     // ToDo
+
+
     return 0;
 }
 
@@ -150,12 +152,12 @@ double trace_matrix(Matrix a)
     int cols = a.cols;
     if (rows == cols)
     {
-        int b;
+        double trace;
         for (int i = 0; i < rows; i++)
         {
-            b = b + a.data[i][i];
+            trace = trace + a.data[i][i];
         }
-        return b;
+        return trace;
     }
     else
     {
