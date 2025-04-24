@@ -146,6 +146,22 @@ int rank_matrix(Matrix a)
 double trace_matrix(Matrix a)
 {
     // ToDo
+    int rows = a.rows;
+    int cols = a.cols;
+    if (rows == cols)
+    {
+        int b;
+        for (int i = 0; i < rows; i++)
+        {
+            b = b + a.data[i][i];
+        }
+        return b;
+    }
+    else
+    {
+        printf("Error: The matrix must be a square matrix.\n");
+    }
+
     return 0;
 }
 
