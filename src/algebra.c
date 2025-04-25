@@ -274,7 +274,16 @@ int rank_matrix(Matrix a)
             }
         }
     }
-    return rank;
+    
+    // After Gaussian elimination, check if all diagonal elements are zero
+    for (int i = 0; i < rank; i++)
+    {
+        if (a.data[i][i] != 0)
+        {
+            return rank;
+        }
+    }
+
     return 0;
 }
 
