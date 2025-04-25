@@ -71,8 +71,9 @@ Error: Matrix a and b must have the same rows and cols.
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_run_1.png)
 #### 终端显示如下：
-
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_run_2.png)
 ### 2.实现add_matrix
 #### 实现思路
 首先判断a,b行数、列数是否相同，若相同则创建与a,b同型的矩阵，遍历a,b的每一个元素进行相加，并存储在c中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
 #### 本地运行截图如下：
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_add.png)
