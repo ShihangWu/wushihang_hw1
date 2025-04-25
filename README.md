@@ -101,7 +101,7 @@ Error: Matrix a and b must have the same rows and cols.
 #### 实现思路
 首先，代码检查输入矩阵 `a` 是否为方阵（即行数等于列数）。如果矩阵不是方阵，直接输出错误信息并返回 `0`。
 对于一个 `1x1` 的矩阵，行列式等于其唯一的元素，直接返回该值。
-对于一个 `2x2` 的矩阵，行列式通过公式 `ad - bc` 计算
+对于一个 `2x2` 的矩阵，行列式通过公式 `ad - bc` 计算。
 对于大于 `2x2` 的矩阵，用拉普拉斯展开计算：
 - 通过循环遍历矩阵的第一行，每次选取第一行的一个元素 `a[0][j]`，并删除该元素所在的行和列，得到一个子矩阵。
 - 然后递归调用 `det_matrix` 函数计算子矩阵的行列式。
@@ -110,3 +110,17 @@ Error: Matrix a and b must have the same rows and cols.
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_det_normal.png)
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_det_error.png)
+### 8.实现`inv_matrix`
+#### 实现思路
+首先，代码检查输入矩阵 `a` 的行数是否等于列数。如果矩阵不是方阵，直接输出错误信息，并返回一个空矩阵。
+接下来，计算矩阵的行列式。如果行列式为零，则输出错误信息并返回空矩阵，因为一个行列式为零的矩阵是不可逆的。
+若行列式不为零，对于可逆的方阵，实现步骤如下：
+-  计算代数余子式。代数余子式矩阵的每个元素是通过计算删除所在行和列后的子矩阵的行列式，然后根据其位置乘以相应的符号（根据其行列位置的奇偶性，符号为 `+` 或 `-`）。
+- 代码通过两层循环遍历矩阵的每个元素，生成对应的代数余子式，并将结果存储在一个新的矩阵 `cofactors` 中。
+- 计算完成代数余子式矩阵后，接着进行转置操作，得到伴随矩阵 `adj`。
+- 最后，使用行列式的倒数乘以伴随矩阵，得到逆矩阵。
+#### 本地运行截图如下：
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_inv_error.png)
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_inv_normal_1.png)
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_inv_normal_2.png)
+
