@@ -241,6 +241,40 @@ Matrix inv_matrix(Matrix a)
 int rank_matrix(Matrix a)
 {
     // ToDo
+    int m = a.rows;
+    int n = a.cols;
+    int rank = (m < n) ? m : n;
+    
+    for (int i = 0; i < rank; i++) {
+        if (a.data[i][i] == 0) {
+            int j;
+            for (j = i + 1; j < m; j++) {
+                if (a.data[j][i] != 0) {
+                    break;
+                }
+            }
+            if (j == m) {
+                rank--;
+                continue;
+            }
+            // Swap rows i and j
+            for (int k = 0; k < n; k++) {
+                double temp = a.data[i][k];
+                a.data[i][k] = a.data[j][k];
+                a.data[j][k] = temp;
+            }
+        }
+        // Make the column below a[i][i] zero
+        for (int j = i + 1; j < m; j++) {
+            if (a.data[j][i] != 0) {
+                double factor = a.data[j][i] / a.data[i][i];
+                for (int k = i; k < n; k++) {
+                    a.data[j][k] -= factor * a.data[i][k];
+                }
+            }
+        }
+    }
+    return rank;
     return 0;
 }
 
