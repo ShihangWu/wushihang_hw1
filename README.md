@@ -72,18 +72,28 @@ Error: Matrix a and b must have the same rows and cols.
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_run_1.png)
 #### 终端显示如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_run_2.png)
-### 2.实现add_matrix
+### 2.实现`add_matrix`
 #### 实现思路
 首先判断a,b行数、列数是否相同，若相同则创建与a,b同型的矩阵，遍历a,b的每一个元素进行相加，并存储在c中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_add.png)
-### 2.实现add_matrix
+### 3.实现`sub_matrix`
 #### 实现思路
 首先判断a,b行数、列数是否相同，若相同则创建与a,b同型的矩阵，遍历a,b的每一个元素进行相减，并存储在c中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_sub.png)
-### 3.实现mul_matrix
+### 4.实现`mul_matrix`
 #### 实现思路
-首先判断a的行数与b的列数是否相同，若相同则创建与c矩阵，遍历a,b的每一个行进行乘法运算，并存储在c中；若不相同，则输出`Error: The number of cols of matrix a must be equal to the number of rows of matrix b.`
+首先判断a的行数与b的列数是否相同，若相同则创建c矩阵，遍历a的每一行进行乘法运算，并存储在c中；若不相同，则输出`Error: The number of cols of matrix a must be equal to the number of rows of matrix b.`
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_mul.png)
+### 5.实现`scale_matrix`
+#### 实现思路
+创建与a同型的矩阵，依次按行、列遍历a的每一个元素，将其与k相乘，并存储在b中
+#### 本地运行截图如下：
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_scale.png)
+### 6.实现`transpose_matrix`
+#### 实现思路
+对行数为`rows`,列数为`cols`的a矩阵，创建一个行数为`cols`,列数为`rows`的a矩阵,遍历`a.data[i][j]`,将其赋值给`b.data[j][i]`
+#### 本地运行截图如下：
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_transpose.png)
