@@ -177,8 +177,66 @@ double det_matrix(Matrix a)
 Matrix inv_matrix(Matrix a)
 {
     // ToDo
-    return create_matrix(0, 0);
+    // 检查是否是方阵
+    if (a.rows != a.cols) 
+    {
+        printf("Error: The matrix must be a square matrix.\n");
+        return create_matrix(0, 0);  // 返回空矩阵
+    }
+
+    double det = det_matrix(a);
+    
+    // 如果行列式为0，则矩阵不可逆
+    if (det == 0)
+    {
+        printf("Error: The matrix is singular.\n");
+        return create_matrix(0, 0);  // 返回空矩阵
+    }
+
+    // 计算代数余子式矩阵（未转置）
+    Matrix cofactors = create_matrix(a.rows, a.cols);
+    for (int i = 0; i < a.rows; i++)
+    {
+        for (int j = 0; j < a.cols; j++)
+        {
+            Matrix submatrix;
+            submatrix.rows = a.rows - 1;
+            submatrix.cols = a.cols - 1;
+
+            int sub_row = 0;
+            for (int row = 0; row < a.rows; row++)
+            {
+                if (row == i) continue;
+                int sub_col = 0;
+                for (int col = 0; col < a.cols; col++)
+                {
+                    if (col == j) continue;
+                    submatrix.data[sub_row][sub_col] = a.data[row][col];
+                    sub_col++;
+                }
+                sub_row++;
+            }
+
+            double subdet = det_matrix(submatrix);
+            cofactors.data[i][j] = ((i + j) % 2 == 0 ? 1 : -1) * subdet;
+        }
+    }
+
+    // 转置代数余子式矩阵，得到伴随矩阵
+    Matrix adj = transpose_matrix(cofactors);
+
+    // 除以行列式得到逆矩阵
+    for (int i = 0; i < adj.rows; i++)
+    {
+        for (int j = 0; j < adj.cols; j++)
+        {
+            adj.data[i][j] /= det;
+        }
+    }
+
+    return adj;
 }
+
 
 int rank_matrix(Matrix a)
 {
