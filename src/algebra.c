@@ -128,6 +128,47 @@ Matrix transpose_matrix(Matrix a)
 double det_matrix(Matrix a)
 {
     // ToDo
+    if (a.rows == a.cols)
+    {
+    if (a.rows == 1 && a.cols == 1) {
+        return a.data[0][0];
+    }
+    
+    // 行列式的基本情况：2x2矩阵
+    if (a.rows == 2 && a.cols == 2) {
+        return a.data[0][0] * a.data[1][1] - a.data[0][1] * a.data[1][0];
+    }
+    
+    // 对于大于2x2的矩阵，使用递归展开
+    double determinant = 0;
+    
+    // 遍历矩阵的每一列
+    for (int j = 0; j < a.cols; j++) {
+        // 创建子矩阵，去掉第一行和第j列
+        Matrix submatrix;
+        submatrix.rows = a.rows - 1;
+        submatrix.cols = a.cols - 1;
+        
+        // 填充子矩阵的数据
+        for (int row = 1; row < a.rows; row++) {
+            int sub_col = 0;
+            for (int col = 0; col < a.cols; col++) {
+                if (col == j) continue;  // 跳过第j列
+                submatrix.data[row - 1][sub_col] = a.data[row][col];
+                sub_col++;
+            }
+        }
+        
+        // 递归计算行列式，并加权
+        determinant += ((j % 2 == 0 ? 1 : -1) * a.data[0][j] * det_matrix(submatrix));
+    }
+    
+    return determinant;
+    }
+    else
+    {
+        printf("Error: The matrix must be a square matrix.\n");
+    }
 
 
     return 0;
