@@ -77,3 +77,13 @@ Error: Matrix a and b must have the same rows and cols.
 首先判断a,b行数、列数是否相同，若相同则创建与a,b同型的矩阵，遍历a,b的每一个元素进行相加，并存储在c中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_add.png)
+### 2.实现add_matrix
+#### 实现思路
+首先判断a,b行数、列数是否相同，若相同则创建与a,b同型的矩阵，遍历a,b的每一个元素进行相减，并存储在c中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
+#### 本地运行截图如下：
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_sub.png)
+### 3.实现mul_matrix
+#### 实现思路
+首先判断a的行数与b的列数是否相同，若相同则创建与c矩阵，遍历a,b的每一个行进行乘法运算，并存储在c中；若不相同，则输出`Error: The number of cols of matrix a must be equal to the number of rows of matrix b.`
+#### 本地运行截图如下：
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_mul.png)
