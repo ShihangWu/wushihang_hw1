@@ -67,33 +67,46 @@ Error: Matrix a and b must have the same rows and cols.
 ## 实现思路以及本地运行截图
 ### 1.可以成功运行
 #### 实现思路
-按照给出的CMakelists模板进行修改，修改了cmake的版本号、C语言的标准，将include改为inc。
+按照给出的CMakelists模板进行修改，修改了cmake的版本号、C语言的标准，将`include`改为`inc`。
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_run_1.png)
 #### 终端显示如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_run_2.png)
 ### 2.实现`add_matrix`
 #### 实现思路
-首先判断a,b行数、列数是否相同，若相同则创建与a,b同型的矩阵，遍历a,b的每一个元素进行相加，并存储在c中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
+首先判断`a`,`b`行数、列数是否相同，若相同则创建与`a`,`b`同型的矩阵，遍历`a`,`b`的每一个元素进行相加，并存储在`c`中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_add.png)
 ### 3.实现`sub_matrix`
 #### 实现思路
-首先判断a,b行数、列数是否相同，若相同则创建与a,b同型的矩阵，遍历a,b的每一个元素进行相减，并存储在c中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
+首先判断`a`,`b`行数、列数是否相同，若相同则创建与`a`,`b`同型的矩阵，遍历`a`,`b`的每一个元素进行相减，并存储在`c`中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_sub.png)
 ### 4.实现`mul_matrix`
 #### 实现思路
-首先判断a的行数与b的列数是否相同，若相同则创建c矩阵，遍历a的每一行进行乘法运算，并存储在c中；若不相同，则输出`Error: The number of cols of matrix a must be equal to the number of rows of matrix b.`
+首先判断`a`的行数与`b`的列数是否相同，若相同则创建`c`矩阵，遍历`a`的每一行进行乘法运算，并存储在`c`中；若不相同，则输出`Error: The number of cols of matrix a must be equal to the number of rows of matrix b.`
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_mul.png)
 ### 5.实现`scale_matrix`
 #### 实现思路
-创建与a同型的矩阵，依次按行、列遍历a的每一个元素，将其与k相乘，并存储在b中
+创建与`a`同型的矩阵，依次按行、列遍历`a`的每一个元素，将其与k相乘，并存储在`b`中
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_scale.png)
 ### 6.实现`transpose_matrix`
 #### 实现思路
-对行数为`rows`,列数为`cols`的a矩阵，创建一个行数为`cols`,列数为`rows`的a矩阵,遍历`a.data[i][j]`,将其赋值给`b.data[j][i]`
+对行数为`rows`,列数为`cols`的`a`矩阵，创建一个行数为`cols`,列数为`rows`的`a`矩阵,遍历`a.data[i][j]`,将其赋值给`b.data[j][i]`
 #### 本地运行截图如下：
 ![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_transpose.png)
+### 7.实现`det_matrix`
+#### 实现思路
+首先，代码检查输入矩阵 `a` 是否为方阵（即行数等于列数）。如果矩阵不是方阵，直接输出错误信息并返回 `0`。
+对于一个 `1x1` 的矩阵，行列式等于其唯一的元素，直接返回该值。
+对于一个 `2x2` 的矩阵，行列式通过公式 `ad - bc` 计算
+对于大于 `2x2` 的矩阵，用拉普拉斯展开计算：
+- 通过循环遍历矩阵的第一行，每次选取第一行的一个元素 `a[0][j]`，并删除该元素所在的行和列，得到一个子矩阵。
+- 然后递归调用 `det_matrix` 函数计算子矩阵的行列式。
+- 每次递归计算时，根据列的奇偶性（`j % 2 == 0` 或 `j % 2 != 0`），对结果加上适当的符号（`+` 或 `-`）。
+- 最后，累加每个递归结果，得到完整的行列式。
+#### 本地运行截图如下：
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_det_normal.png)
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_det_error.png)
