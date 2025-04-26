@@ -106,8 +106,7 @@ Error: Matrix a and b must have the same rows and cols.
 - 每次递归计算时，根据列的奇偶性（`j % 2 == 0` 或 `j % 2 != 0`），对结果加上适当的符号（`+` 或 `-`）。
 - 最后，累加每个递归结果，得到完整的行列式。
 #### 本地运行截图如下：
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_det_normal.png)
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_det_error.png)
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_det_1_final.png)
 ### 8.实现`inv_matrix`
 #### 实现思路
 首先，代码检查输入矩阵 `a` 的行数是否等于列数。如果矩阵不是方阵，直接输出错误信息，并返回一个空矩阵。
@@ -118,9 +117,7 @@ Error: Matrix a and b must have the same rows and cols.
 - 计算完成代数余子式矩阵后，接着进行转置操作，得到伴随矩阵 `adj`。
 - 最后，使用行列式的倒数乘以伴随矩阵，得到逆矩阵。
 #### 本地运行截图如下：
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_inv_error.png)
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_inv_normal_1.png)
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_inv_normal_2.png)
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_inv_modified_1.png)
 ### 9.实现`rank_matrix`
 #### 实现思路
 1. 首先，代码获取矩阵的行数 `m` 和列数 `n`，并初始化矩阵秩 `rank` 为行数与列数中的较小值，确保在处理过程中不会超出矩阵的维度。
@@ -133,8 +130,7 @@ Error: Matrix a and b must have the same rows and cols.
 - 如果对角线元素为零，则该行是线性相关的，秩不变。
 最终返回的秩值 `rank` 即为矩阵的秩。
 #### 本地运行截图如下：
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_rank_but_zero_rank.png)
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_rank_zero_rank.png)
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_rank_all_1.png)
 ### 10.实现`trace_matrix`
 #### 实现思路
 1. 首先，代码检查输入矩阵 `a` 的行数是否等于列数。如果矩阵不是方阵，直接输出错误信息并返回 `0`。
