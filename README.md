@@ -67,11 +67,9 @@ Error: Matrix a and b must have the same rows and cols.
 ## 实现思路以及本地运行截图
 ### 1.可以成功运行
 #### 实现思路
-按照给出的CMakelists模板进行修改，修改了cmake的版本号、C语言的标准，将`include`改为`inc`。
+按照给出的CMakelists模板进行修改，修改了cmake的版本号、C语言的标准，将`include`改为`inc`。编译完成后生成可执行文件`main.exe`，在终端中运行`main.exe`，测试运算符`q`的退出功能
 #### 本地运行截图如下：
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_run_1.png)
-#### 终端显示如下：
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_run_2.png)
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_run_3_final.png)
 ### 2.实现`add_matrix`
 #### 实现思路
 首先判断`a`,`b`行数、列数是否相同，若相同则创建与`a`,`b`同型的矩阵，遍历`a`,`b`的每一个元素进行相加，并存储在`c`中；若不相同，则输出`Error Matrix a and b must have the same rows and cols.`
