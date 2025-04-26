@@ -184,6 +184,22 @@ Matrix inv_matrix(Matrix a)
         return create_matrix(0, 0);  // 返回空矩阵
     }
 
+    // 处理 1x1 矩阵的特殊情况
+    if (a.rows == 1 && a.cols == 1)
+    {
+        if (a.data[0][0] == 0)
+        {
+            printf("Error: The matrix is singular.\n");
+            return create_matrix(0, 0);  // 返回空矩阵
+        }
+        else
+        {
+            Matrix inv = create_matrix(1, 1);
+            inv.data[0][0] = 1 / a.data[0][0];
+            return inv;  // 返回 1x1 的逆矩阵
+        }
+    }
+
     double det = det_matrix(a);
     
     // 如果行列式为0，则矩阵不可逆

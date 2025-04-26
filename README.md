@@ -117,7 +117,7 @@ Error: Matrix a and b must have the same rows and cols.
 - 计算完成代数余子式矩阵后，接着进行转置操作，得到伴随矩阵 `adj`。
 - 最后，使用行列式的倒数乘以伴随矩阵，得到逆矩阵。
 #### 本地运行截图如下：
-![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_inv_modified_1.png)
+![](https://wushihang-1356508236.cos.ap-shanghai.myqcloud.com/img/can_inv_all_2.png)
 ### 9.实现`rank_matrix`
 #### 实现思路
 1. 首先，代码获取矩阵的行数 `m` 和列数 `n`，并初始化矩阵秩 `rank` 为行数与列数中的较小值，确保在处理过程中不会超出矩阵的维度。
